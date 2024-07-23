@@ -1,18 +1,11 @@
 <?php
 
 use App\Http\Controllers\Guest\PageController as GuestPageController;
-// use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Guest\PokemonController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', [GuestPageController::class, 'index'])->name('guest.home');
+
+// Rotte per i Pokemon
+Route::get('/pokemons', [PokemonController::class, 'index'])->name('pokemons.index');
+Route::get('/pokemons/{id}', [PokemonController::class, 'show'])->name('pokemons.show');
